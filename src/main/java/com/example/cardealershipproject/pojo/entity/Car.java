@@ -20,10 +20,9 @@ public class Car {
     @Column(name = "year")
     private Integer year;
 
-    @OneToOne(mappedBy = "car")
-    @JoinColumn(name = "invoicenr")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "car", cascade = CascadeType.MERGE)
     @JsonBackReference
-    private Sale sale;
+    private List<Sale> sales;
 
     // Constructors
     public Car() {
