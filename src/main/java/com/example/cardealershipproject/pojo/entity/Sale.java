@@ -11,12 +11,12 @@ public class Sale {
     @Column(name = "invoicenr", nullable = false)
     private Integer invoicenr;
 
-    @OneToOne
-    @JoinColumn(name = "customerid")
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "customerid", referencedColumnName = "customerid")
     private Customer customer;
 
-    @OneToOne
-    @JoinColumn(name = "vin")
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @JoinColumn(name = "vin", referencedColumnName = "vin")
     private Car car;
 
    // Constructors
