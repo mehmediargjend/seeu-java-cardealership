@@ -26,7 +26,7 @@ public class Customer {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer", cascade = CascadeType.MERGE)
     @JsonBackReference
-    private Sale sale;
+    private List<Sale> sales;
 
     // Constructors
     public Customer() {
