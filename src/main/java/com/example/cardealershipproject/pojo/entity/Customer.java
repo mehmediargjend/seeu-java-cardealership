@@ -24,8 +24,7 @@ public class Customer {
     @Column(name = "phonenr")
     private Integer phonenr;
 
-    @OneToOne(mappedBy = "customer")
-    @JoinColumn(name = "invoicenr")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer", cascade = CascadeType.MERGE)
     @JsonBackReference
     private Sale sale;
 
